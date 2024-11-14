@@ -14,7 +14,9 @@ mongoose.connect("mongodb://localhost:27017/carApp", {
 }).then(()=>{console.log('database connection succesfull')
   seedData();
 }).catch(()=>console.log('error in database conection'));
-
+app.get('/', (req,res)=>{
+  res.send('welcome to server')
+})
 app.use("/api/users", require("./routes/user"));
 app.use("/api/cars", require("./routes/car"));
 
